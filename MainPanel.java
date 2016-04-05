@@ -33,9 +33,25 @@ public class MainPanel extends JPanel {
 ////////////////////////Refactored 
     public int convertToInt(int x) 
     {
+      //needs to run in the case of a negative to ensure same output
+      if(x<0)
+      {
+        int c = 0;
+        String padding = "0";
+        while (c < _r) {
+          String l = new String("0");
+          padding += l;
+          c++;
+        }
+        String n = padding + String.valueOf(x);
+        int q = Integer.parseInt(n);
+        return q;
+      }
+      //end of code handleing for negatives
       return x;
     }
-/////////////////////////    
+//end of refactor
+    
 ///////////////////////// Original
     public int convertToIntOrig(int x)
     {

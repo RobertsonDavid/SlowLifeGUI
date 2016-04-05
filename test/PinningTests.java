@@ -17,15 +17,27 @@ public class PinningTests
     assertEquals(orig, refactored);
   }
   
-  @Test
+  //Should cause number formatting exception
+  @Test(expected=NumberFormatException.class)
   public void convertToIntNegative()
   {
-    int x= (Integer.MAX_VALUE)*-1;
+    int x= (-Integer.MAX_VALUE);
     MainPanel mainN = new MainPanel(mSize);
     int refactored = mainN.convertToInt(x);
     int orig = mainN.convertToIntOrig(x);
     assertEquals(orig, refactored);
   }
+/*  Test that failed to alert me to a problem with the method not accepting negatives
+  @Test
+  public void convertToIntNegativeFailed()
+  {
+    int x= (-Integer.MAX_VALUE);
+    MainPanel mainN = new MainPanel(mSize);
+    int refactored = mainN.convertToInt(x);
+    int orig = mainN.convertToIntOrig(x);
+    assertEquals(orig, refactored);
+  }
+  */
   
   @Test
   public void convertToIntZero()
